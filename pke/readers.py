@@ -169,7 +169,7 @@ class RawTextReader(Reader):
                 print(self.language)
                 print(str2spacy(self.language))
 
-                spacy_model = spacy.load("./en_core_web_sm-2.2.5",
+                spacy_model = spacy.load("./en_core_web_sm-3.0.0/en_core_web_sm/en_core_web_sm-3.0.0",
                                          disable=['ner', 'textcat', 'parser'])
                 # spacy_model = spacy.load(str2spacy(self.language),
                 #                          disable=['ner', 'textcat', 'parser'])
