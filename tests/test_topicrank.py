@@ -2,21 +2,21 @@
 # -*- coding: utf-8 -*-
 
 import os
-import pkelambda
+import pke
 
 valid_pos = {'NOUN', 'PROPN', 'ADJ'}
 test_file = os.path.join('tests', 'data', '1939.xml')
 
 
 def test_topicrank_candidate_selection():
-    extractor = pkelambda.unsupervised.TopicRank()
+    extractor = pke.unsupervised.TopicRank()
     extractor.load_document(test_file)
     extractor.candidate_selection(pos=valid_pos)
     assert len(extractor.candidates) == 20
 
 
 def test_topicrank_candidate_weighting():
-    extractor = pkelambda.unsupervised.TopicRank()
+    extractor = pke.unsupervised.TopicRank()
     extractor.load_document(test_file)
     extractor.candidate_selection(pos=valid_pos)
     extractor.candidate_weighting(threshold=0.74, method='average')

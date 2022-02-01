@@ -8,7 +8,7 @@ from __future__ import absolute_import
 from __future__ import division
 from __future__ import print_function
 
-from pkelambda.base import LoadFile
+from pke.base import LoadFile
 
 
 class FirstPhrases(LoadFile):

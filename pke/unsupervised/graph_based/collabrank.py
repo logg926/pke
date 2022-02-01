@@ -16,8 +16,8 @@ from __future__ import division
 from __future__ import unicode_literals
 from __future__ import absolute_import
 
-from pkelambda.unsupervised import SingleRank
-from pkelambda.base import LoadFile
+from pke.unsupervised import SingleRank
+from pke.base import LoadFile
 
 import networkx as nx
 import logging

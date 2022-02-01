@@ -2,10 +2,10 @@
 # -*- coding: utf-8 -*-
 
 import os
-import pkelambda
+import pke
 import codecs
 
-model = pkelambda.unsupervised.TopicRank
+model = pke.unsupervised.TopicRank
 
 data_path = os.path.join('tests', 'data')
 xml_test_file = data_path + os.sep + '1939.xml'

@@ -1,14 +1,14 @@
 from distutils.core import setup
 
-setup(name='pkelambda',
+setup(name='pke',
       version='1.8.1',
       description='Python Keyphrase Extraction module',
-      author='pkelambda contributors',
+      author='pke contributors',
       author_email='florian.boudin@univ-nantes.fr',
       license='gnu',
-      packages=['pkelambda', 'pkelambda.unsupervised', 'pkelambda.supervised',
-                'pkelambda.supervised.feature_based', 'pkelambda.unsupervised.graph_based',
-                'pkelambda.unsupervised.statistical', 'pkelambda.supervised.neural_based'],
+      packages=['pke', 'pke.unsupervised', 'pke.supervised',
+                'pke.supervised.feature_based', 'pke.unsupervised.graph_based',
+                'pke.unsupervised.statistical', 'pke.supervised.neural_based'],
       url="https://github.com/boudinfl/pke",
       install_requires=[
           'nltk',
@@ -22,5 +22,5 @@ setup(name='pkelambda',
           'future',
           'joblib'
       ],
-      package_data={'pkelambda': ['models/*.pickle', 'models/*.gz']}
+      package_data={'pke': ['models/*.pickle', 'models/*.gz']}
       )

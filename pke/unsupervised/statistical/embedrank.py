@@ -5,7 +5,7 @@ import numpy as np
 from sklearn.metrics.pairwise import cosine_similarity
 
 
-from pkelambda import LoadFile
+from pke import LoadFile
 
 
 class EmbedRank(LoadFile):

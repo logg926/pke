@@ -20,8 +20,8 @@ import math
 import string
 import logging
 
-from pkelambda.base import LoadFile
-from pkelambda.utils import load_document_frequency_file
+from pke.base import LoadFile
+from pke.utils import load_document_frequency_file
 
 
 class KPMiner(LoadFile):

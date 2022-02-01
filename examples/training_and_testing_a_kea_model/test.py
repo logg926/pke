@@ -1,11 +1,11 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-import pkelambda
+import pke
 
 # create a Kea extractor and set the input language to English (used for
 # the stoplist in the candidate selection method)
-extractor = pkelambda.supervised.Kea()
+extractor = pke.supervised.Kea()
 
 # load the content of the document, here in CoreNLP XML format
 # the use_lemmas parameter allows to choose using CoreNLP lemmas or stems 
@@ -17,7 +17,7 @@ extractor.load_document('C-1.xml')
 extractor.candidate_selection()
 
 # load the df counts
-df_counts = pkelambda.load_document_frequency_file(input_file="df.tsv.gz",
+df_counts = pke.load_document_frequency_file(input_file="df.tsv.gz",
                                              delimiter='\t')
 
 # weight the candidates using Kea model.

@@ -4,7 +4,7 @@
 from __future__ import unicode_literals
 
 import os
-import pkelambda
+import pke
 
 test_file = os.path.join('tests', 'data', '1939.xml')
 
@@ -15,7 +15,7 @@ pos = {'NOUN', 'PROPN', 'ADJ'}
 def test_positionrank_candidate_selection():
     """Test PositionRank candidate selection method."""
 
-    extractor = pkelambda.unsupervised.PositionRank()
+    extractor = pke.unsupervised.PositionRank()
     extractor.load_document(input=test_file)
     extractor.candidate_selection(grammar=grammar)
     assert len(extractor.candidates) == 19
@@ -24,7 +24,7 @@ def test_positionrank_candidate_selection():
 def test_positionrank_candidate_weighting():
     """Test PositionRank candidate weighting method."""
 
-    extractor = pkelambda.unsupervised.PositionRank()
+    extractor = pke.unsupervised.PositionRank()
     extractor.load_document(input=test_file)
     extractor.candidate_selection(grammar=grammar)
     extractor.candidate_weighting(window=10, pos=pos)

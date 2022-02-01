@@ -21,7 +21,7 @@ import logging
 
 import networkx as nx
 
-from pkelambda.base import LoadFile
+from pke.base import LoadFile
 
 
 class TextRank(LoadFile):

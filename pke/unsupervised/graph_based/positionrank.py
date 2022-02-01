@@ -18,7 +18,7 @@ from __future__ import absolute_import
 from __future__ import division
 from __future__ import print_function
 
-from pkelambda.unsupervised import SingleRank
+from pke.unsupervised import SingleRank
 
 import networkx as nx
 from collections import defaultdict

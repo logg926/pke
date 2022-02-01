@@ -3,7 +3,7 @@
 import logging
 import sys
 
-from pkelambda import compute_lda_model
+from pke import compute_lda_model
 
 # setting info in terminal
 logging.basicConfig(level=logging.INFO)

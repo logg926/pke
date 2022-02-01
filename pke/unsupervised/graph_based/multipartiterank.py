@@ -24,7 +24,7 @@ import numpy as np
 from scipy.cluster.hierarchy import linkage, fcluster
 from scipy.spatial.distance import pdist
 
-from pkelambda.unsupervised import TopicRank
+from pke.unsupervised import TopicRank
 
 
 class MultipartiteRank(TopicRank):

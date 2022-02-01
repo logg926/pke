@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 import os
-import pkelambda
+import pke
 
 data_path = os.path.join('tests', 'data')
 
@@ -17,9 +17,9 @@ def create_corpus(values, tmp_path, name='corpus.gz'):
 
 def create_df(corpus_dir, tmp_path, name='corpus_df.gz'):
     corpus_df_file = tmp_path / name
-    pkelambda.utils.compute_document_frequency(
+    pke.utils.compute_document_frequency(
         str(corpus_dir), str(corpus_df_file), extension='txt', n=1)
-    corpus_df = pkelambda.utils.load_document_frequency_file(str(corpus_df_file))
+    corpus_df = pke.utils.load_document_frequency_file(str(corpus_df_file))
     return corpus_df, corpus_df_file
 
 
@@ -48,22 +48,22 @@ def test_load_reference():
 
     id = 'C-41'
 
-    g1 = pkelambda.utils.load_references(input_file=data_path + os.sep + 'reference.json',
+    g1 = pke.utils.load_references(input_file=data_path + os.sep + 'reference.json',
                                    normalize_reference=True,
                                    language="en",
                                    encoding='utf-8')
 
-    g2 = pkelambda.utils.load_references(input_file=data_path + os.sep + 'reference.stem.json',
+    g2 = pke.utils.load_references(input_file=data_path + os.sep + 'reference.stem.json',
                                    normalize_reference=False,
                                    language="en",
                                    encoding='utf-8')
 
-    g3 = pkelambda.utils.load_references(input_file=data_path + os.sep + 'reference.final',
+    g3 = pke.utils.load_references(input_file=data_path + os.sep + 'reference.final',
                                    normalize_reference=True,
                                    language="en",
                                    encoding='utf-8')
 
-    g4 = pkelambda.utils.load_references(input_file=data_path + os.sep + 'reference.stem.final',
+    g4 = pke.utils.load_references(input_file=data_path + os.sep + 'reference.stem.final',
                                    normalize_reference=False,
                                    language="en",
                                    encoding='utf-8')
@@ -88,11 +88,11 @@ def test_compute_document_frequency(tmp_path):
 
     # Compute document frequency
     tmp_freq = tmp_path / 'tmp_doc_freq.tsv.gz'
-    pkelambda.utils.compute_document_frequency(
+    pke.utils.compute_document_frequency(
         str(tmp_corpus), str(tmp_freq), extension='txt', n=1)
 
     # Asserting
-    df = pkelambda.utils.load_document_frequency_file(str(tmp_freq))
+    df = pke.utils.load_document_frequency_file(str(tmp_freq))
     assert df == expected
 
 
@@ -109,7 +109,7 @@ def test_compute_lda(tmp_path):
 
     # Compute LDA topics
     tmp_lda = tmp_path / 'lda.pickle.gz'
-    pkelambda.utils.compute_lda_model(
+    pke.utils.compute_lda_model(
         str(tmp_corpus), str(tmp_lda), n_topics=2, extension='txt')
 
     # Asserting
@@ -128,7 +128,7 @@ def test_load_document_as_bos(tmp_path):
     expected = {'lorem': 1, 'ipsum': 1, 'sit': 1, 'amet': 1}
 
     # Compute bag of stem
-    bos = pkelambda.utils.load_document_as_bos(str(tmp_file))
+    bos = pke.utils.load_document_as_bos(str(tmp_file))
 
     assert bos == expected
 
@@ -145,7 +145,7 @@ def test_compute_pairwise_sim_one_corpus(tmp_path):
 
     # Compute pairwise similarity
     pairw_file = tmp_path / 'pairwise.gz'
-    pkelambda.utils.compute_pairwise_similarity_matrix(
+    pke.utils.compute_pairwise_similarity_matrix(
         str(corpus_dir), str(pairw_file), extension='txt',
         collection_dir=None, df=corpus_df)  # TODO: remove and fix "df={}"
     pairw = load_pairwise_similarities(str(pairw_file))
@@ -174,7 +174,7 @@ def test_compute_pairwise_sim_two_corpus(tmp_path):
 
     # Compute pairwise similarity
     tmp_pairw = tmp_path / 'pairwise.gz'
-    pkelambda.utils.compute_pairwise_similarity_matrix(
+    pke.utils.compute_pairwise_similarity_matrix(
         str(corpus_dir), str(tmp_pairw), extension='txt',
         collection_dir=str(collection_dir), df=corpus_df)
     pairw = load_pairwise_similarities(str(tmp_pairw))
@@ -199,10 +199,10 @@ def test_train_supervised_model(tmp_path):
     )
 
     tmp_model = tmp_path / 'model.pickle'
-    pkelambda.utils.train_supervised_model(
+    pke.utils.train_supervised_model(
         str(tmp_corpus), str(tmp_ref), str(tmp_model),
         extension='txt', df=None, leave_one_out=False,
-        model=pkelambda.supervised.Kea())  # TODO: fix doc for model param
+        model=pke.supervised.Kea())  # TODO: fix doc for model param
 
 
 def test_train_supervised_model_leave_one_out(tmp_path):
@@ -218,10 +218,10 @@ def test_train_supervised_model_leave_one_out(tmp_path):
     )
 
     tmp_model = tmp_path / 'model.pickle'
-    pkelambda.utils.train_supervised_model(
+    pke.utils.train_supervised_model(
         str(tmp_corpus), str(tmp_ref), str(tmp_model),
         extension='txt', df=None, leave_one_out=True,
-        model=pkelambda.supervised.Kea())  # TODO: fix doc for model param
+        model=pke.supervised.Kea())  # TODO: fix doc for model param
 
 
 if __name__ == '__main__':

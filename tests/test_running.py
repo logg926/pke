@@ -2,14 +2,14 @@
 # -*- coding: utf-8 -*-
 
 import os
-from pkelambda.unsupervised import (
+from pke.unsupervised import (
     TopicRank, SingleRank,
     MultipartiteRank, PositionRank,
     TopicalPageRank, ExpandRank,
     TextRank, TfIdf, KPMiner,
     YAKE, FirstPhrases
 )
-from pkelambda.supervised import Kea, WINGNUS
+from pke.supervised import Kea, WINGNUS
 
 test_file = os.path.join('tests', 'data', '1939.xml')
 
