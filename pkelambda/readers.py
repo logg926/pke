@@ -166,6 +166,7 @@ class RawTextReader(Reader):
 
         if spacy_model is None:
             try:
+                print(str2spacy(self.language))
                 spacy_model = spacy.load(str2spacy(self.language),
                                          disable=['ner', 'textcat', 'parser'])
             except OSError:
