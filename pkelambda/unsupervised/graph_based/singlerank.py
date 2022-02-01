@@ -18,7 +18,7 @@ from __future__ import print_function
 
 import networkx as nx
 
-from pke.unsupervised.graph_based.textrank import TextRank
+from pkelambda.unsupervised.graph_based.textrank import TextRank
 
 
 class SingleRank(TextRank):

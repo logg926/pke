@@ -4,7 +4,7 @@
 from __future__ import unicode_literals
 
 import os
-import pke
+import pkelambda
 
 test_file = os.path.join('tests', 'data', '1939.xml')
 pos = {'NOUN', 'PROPN', 'ADJ'}
@@ -13,7 +13,7 @@ pos = {'NOUN', 'PROPN', 'ADJ'}
 def test_textrank():
   """Test TextRank for keyword extraction using original paper's example."""
 
-  extractor = pke.unsupervised.TextRank()
+  extractor = pkelambda.unsupervised.TextRank()
   extractor.load_document(input=test_file)
   extractor.candidate_weighting(top_percent=.33, pos=pos)
   keyphrases = [k for k, s in extractor.get_n_best(n=3)]
@@ -25,7 +25,7 @@ def test_textrank():
 def test_textrank_with_candidate_selection():
   """Test TextRank with longest-POS-sequences candidate selection."""
 
-  extractor = pke.unsupervised.TextRank()
+  extractor = pkelambda.unsupervised.TextRank()
   extractor.load_document(input=test_file)
   extractor.candidate_selection(pos=pos)
   extractor.candidate_weighting(pos=pos)

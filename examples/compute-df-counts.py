@@ -4,7 +4,7 @@ import logging
 import sys
 from string import punctuation
 
-from pke import compute_document_frequency
+from pkelambda import compute_document_frequency
 
 # setting info in terminal
 logging.basicConfig(level=logging.INFO)

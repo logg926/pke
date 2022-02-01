@@ -26,8 +26,8 @@ import six
 from scipy.spatial.distance import cosine
 from sklearn.feature_extraction.text import CountVectorizer
 
-import pke.utils
-from pke.unsupervised import SingleRank
+import pkelambda.utils
+from pkelambda.unsupervised import SingleRank
 
 
 class TopicalPageRank(SingleRank):
@@ -146,7 +146,7 @@ class TopicalPageRank(SingleRank):
             logging.warning('LDA model is hard coded to {}'.format(lda_model))
 
         # load parameters from file
-        dictionary, model = pke.utils.load_lda_model(lda_model)
+        dictionary, model = pkelambda.utils.load_lda_model(lda_model)
 
         # build the document representation
         doc = []

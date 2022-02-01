@@ -4,7 +4,7 @@
 from __future__ import unicode_literals
 
 import os
-import pke
+import pkelambda
 
 test_file = os.path.join('tests', 'data', '1939.xml')
 grammar = "NP: {<ADJ>*<NOUN|PROPN>+}"
@@ -14,7 +14,7 @@ pos = {'NOUN', 'PROPN', 'ADJ'}
 def test_topicalpagerank_candidate_selection():
     """Test Single Topical PageRank candidate selection method."""
 
-    extractor = pke.unsupervised.TopicalPageRank()
+    extractor = pkelambda.unsupervised.TopicalPageRank()
     extractor.load_document(input=test_file)
     extractor.candidate_selection(grammar=grammar)
     assert len(extractor.candidates) == 19
@@ -23,7 +23,7 @@ def test_topicalpagerank_candidate_selection():
 def test_topicalpagerank_candidate_weighting():
     """Test Single Topical PageRank weighting method."""
 
-    extractor = pke.unsupervised.TopicalPageRank()
+    extractor = pkelambda.unsupervised.TopicalPageRank()
     extractor.load_document(input=test_file)
     extractor.candidate_selection(grammar=grammar)
     extractor.candidate_weighting(window=10, pos=pos)

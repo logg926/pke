@@ -10,7 +10,7 @@ import logging
 import xml.etree.ElementTree as etree
 import spacy
 
-from pke.data_structures import Document
+from pkelambda.data_structures import Document
 
 
 class Reader(object):

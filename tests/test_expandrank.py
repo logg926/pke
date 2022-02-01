@@ -4,7 +4,7 @@
 from __future__ import unicode_literals
 
 import os
-import pke
+import pkelambda
 from collections import defaultdict
 import gzip
 import bisect
@@ -25,16 +25,16 @@ def create_corpus(values, tmp_path, name='corpus.gz'):
 def create_df(corpus_dir, tmp_path, name='corpus_df.gz'):
     # from test_utils.py
     corpus_df_file = tmp_path / name
-    pke.utils.compute_document_frequency(
+    pkelambda.utils.compute_document_frequency(
         str(corpus_dir), str(corpus_df_file), extension='txt', n=1)
-    corpus_df = pke.utils.load_document_frequency_file(str(corpus_df_file))
+    corpus_df = pkelambda.utils.load_document_frequency_file(str(corpus_df_file))
     return corpus_df, corpus_df_file
 
 
 def test_expandrank_candidate_selection():
     """Test ExtandRank candidate selection method."""
 
-    extractor = pke.unsupervised.ExpandRank()
+    extractor = pkelambda.unsupervised.ExpandRank()
     extractor.load_document(input=input_file)
     extractor.candidate_selection(pos=pos)
 
@@ -50,15 +50,15 @@ def test_expandrank_candidate_weighting(tmp_path):
     corpus_df, _ = create_df(corpus_dir, tmp_path)
     # compute_pairwise_similarity_matrix
     pairw_file = tmp_path / 'pairwise.gz'
-    pke.utils.compute_pairwise_similarity_matrix(
+    pkelambda.utils.compute_pairwise_similarity_matrix(
         str(corpus_dir), str(pairw_file), extension='txt',
         collection_dir=None, df=corpus_df)
-    pairwise = pke.utils.load_pairwise_similarities(str(pairw_file))
+    pairwise = pkelambda.utils.load_pairwise_similarities(str(pairw_file))
 
     n_expanded = 1
     expanded_documents = [(v, u) for u, v in pairwise[os.path.basename(input_file)][-n_expanded:]]
 
-    extractor = pke.unsupervised.ExpandRank()
+    extractor = pkelambda.unsupervised.ExpandRank()
     extractor.load_document(input=input_file)
     extractor.candidate_selection(pos=pos)
     extractor.candidate_weighting(window=10, pos=pos, expanded_documents=expanded_documents, normalized=False)

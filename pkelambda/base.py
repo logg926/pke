@@ -4,8 +4,8 @@
 
 from collections import defaultdict
 
-from pke.data_structures import Candidate, Document
-from pke.readers import MinimalCoreNLPReader, RawTextReader
+from pkelambda.data_structures import Candidate, Document
+from pkelambda.readers import MinimalCoreNLPReader, RawTextReader
 
 from nltk import RegexpParser
 from nltk.corpus import stopwords

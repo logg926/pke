@@ -18,8 +18,8 @@ from __future__ import division
 from __future__ import unicode_literals
 from __future__ import absolute_import
 
-from pke.unsupervised import SingleRank
-from pke.base import LoadFile
+from pkelambda.unsupervised import SingleRank
+from pkelambda.base import LoadFile
 
 import networkx as nx
 import logging

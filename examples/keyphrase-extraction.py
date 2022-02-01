@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 # this example uses TopicRank
-from pke.unsupervised import TopicRank
+from pkelambda.unsupervised import TopicRank
 
 # create a TopicRank extractor
 extractor = TopicRank()

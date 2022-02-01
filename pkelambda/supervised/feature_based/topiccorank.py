@@ -19,8 +19,8 @@ from __future__ import absolute_import
 from __future__ import division
 from __future__ import print_function
 
-from pke.unsupervised import TopicRank
-from pke.utils import load_references
+from pkelambda.unsupervised import TopicRank
+from pkelambda.utils import load_references
 
 from itertools import combinations
 from collections import defaultdict

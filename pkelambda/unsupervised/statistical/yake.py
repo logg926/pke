@@ -25,7 +25,7 @@ from collections import defaultdict
 import numpy
 from nltk.metrics import edit_distance
 
-from pke.base import LoadFile
+from pkelambda.base import LoadFile
 
 
 class YAKE(LoadFile):

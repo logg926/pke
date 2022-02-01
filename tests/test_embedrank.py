@@ -7,7 +7,7 @@ import os
 import sys
 
 import mock
-import pke
+import pkelambda
 
 text = u"Compatibility of systems of linear constraints over the set of natural\
  numbers. Criteria of compatibility of a system of linear Diophantine equations\
@@ -23,7 +23,7 @@ pos = {'NOUN', 'PROPN', 'ADJ'}
 
 def test_embedrank_candidate_weighting():
     """Test SingleRank candidate weighting method."""
-    extractor = pke.unsupervised.EmbedRank(
+    extractor = pkelambda.unsupervised.EmbedRank(
         embedding_path=os.path.join('tests', 'data', 'inspec_sent2vec.bin'))
     extractor.load_document(input=text)
     extractor.candidate_selection()
@@ -37,4 +37,4 @@ def test_import_embedrank_nosent2vec():
 
     # Make sent2vec unavailable
     with mock.patch.dict(sys.modules, {'sent2vec': None}):
-        pke.unsupervised.EmbedRank()
+        pkelambda.unsupervised.EmbedRank()

@@ -24,7 +24,7 @@ import numpy as np
 from scipy.cluster.hierarchy import linkage, fcluster
 from scipy.spatial.distance import pdist
 
-from pke.base import LoadFile
+from pkelambda.base import LoadFile
 
 
 class TopicRank(LoadFile):

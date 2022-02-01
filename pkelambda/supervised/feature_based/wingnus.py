@@ -23,8 +23,8 @@ import numpy as np
 from joblib import dump as dump_model
 from sklearn.naive_bayes import MultinomialNB
 
-from pke.supervised.api import SupervisedLoadFile
-from pke.utils import load_document_frequency_file
+from pkelambda.supervised.api import SupervisedLoadFile
+from pkelambda.utils import load_document_frequency_file
 
 
 class WINGNUS(SupervisedLoadFile):

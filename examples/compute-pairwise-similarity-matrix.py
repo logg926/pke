@@ -12,7 +12,7 @@ import logging
 
 from nltk.corpus import stopwords
 
-from pke import load_document_frequency_file, compute_pairwise_similarity_matrix
+from pkelambda import load_document_frequency_file, compute_pairwise_similarity_matrix
 
 # setting info in terminal
 logging.basicConfig(level=logging.INFO)
