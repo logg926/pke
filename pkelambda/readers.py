@@ -167,8 +167,11 @@ class RawTextReader(Reader):
         if spacy_model is None:
             try:
                 print(str2spacy(self.language))
-                spacy_model = spacy.load(str2spacy(self.language),
+
+                spacy_model = spacy.load("en_core_web_sm",
                                          disable=['ner', 'textcat', 'parser'])
+                # spacy_model = spacy.load(str2spacy(self.language),
+                #                          disable=['ner', 'textcat', 'parser'])
             except OSError:
                 logging.warning('No spacy model for \'{}\' language.'.format(self.language))
                 logging.warning('Falling back to using english model. There might '
