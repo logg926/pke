@@ -166,9 +166,10 @@ class RawTextReader(Reader):
 
         if spacy_model is None:
             try:
+                print(self.language)
                 print(str2spacy(self.language))
 
-                spacy_model = spacy.load("en_core_web_sm",
+                spacy_model = spacy.load("./en_core_web_sm-2.2.5",
                                          disable=['ner', 'textcat', 'parser'])
                 # spacy_model = spacy.load(str2spacy(self.language),
                 #                          disable=['ner', 'textcat', 'parser'])
